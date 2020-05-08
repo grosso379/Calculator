@@ -18,6 +18,7 @@ function getOriginalNumber(num) {
 function getEvaluableHistory(string) {
   var value = string.replace(/×/g, "*");
   value = value.replace(/÷/g, "/");
+  value = value.replace(/%/g, "*0.01*");
   return value;
 }
 
@@ -52,7 +53,7 @@ for (var i = 0; i < operators.length; i++) {
     } else if (this.id == "equal") {
       var history = getOriginalNumber(getHistory());
       history = getEvaluableHistory(history);
-      printResult(eval(history));
+      printResult(math.evaluate(history));
       printHistory("");
     } else {
       printHistory(getResult() + getHistory() + this.innerText);
@@ -63,8 +64,9 @@ for (var i = 0; i < operators.length; i++) {
 
 // Add numbers pressed to the history
 var numbers = document.getElementsByClassName("number");
-for (var j = 0; j < operators.length; j++) {
+for (var j = 0; j < numbers.length; j++) {
   numbers[j].addEventListener("click", function () {
+    printResult("");
     printHistory(getHistory() + this.innerText);
   });
 }
