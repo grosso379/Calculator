@@ -11,9 +11,10 @@
   height: 100vh;
   width: 100vw;
   background-image: linear-gradient(
-    rgb(255, 34, 34),
-    rgba(170, 29, 29, 0.438),
-    rgb(40, 40, 255)
+    45deg,
+    rgb(192, 70, 13),
+    rgb(212, 91, 101),
+    rgb(223, 98, 146)
   );
   display: flex;
   justify-content: center;
@@ -25,7 +26,7 @@
   background-color: rgb(255, 255, 255);
   height: 600px;
   width: 400px;
-  box-shadow: 1px 1px 10px 2px rgb(255, 24, 24);
+  box-shadow: 6px 6px 7px 0px rgba(212, 91, 101, 0.829);
   padding: 10px;
   border-radius: 10px;
 
@@ -87,7 +88,7 @@
     button:nth-child(3),
     button:nth-child(4n + 4),
     button:last-child {
-      background-color: rgb(159, 159, 214);
+      background-image: linear-gradient(rgb(114, 114, 230), rgb(250, 183, 250));
     }
 
     // Defining button hover effect

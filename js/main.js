@@ -1,3 +1,4 @@
+// Format result to separate with comas each 3 digits
 function getFormattedNumber(num) {
   if (num == "") {
     return num;
@@ -8,8 +9,15 @@ function getFormattedNumber(num) {
   }
 }
 
+// Transform formatted number into regular number to calculate te result
 function getOriginalNumber(num) {
   var value = num.replace(/,/g, "");
+  return value;
+}
+
+function getEvaluableHistory(string) {
+  var value = string.replace(/×/g, "*");
+  value = value.replace(/÷/g, "/");
   return value;
 }
 
@@ -17,9 +25,10 @@ function getHistory() {
   return document.getElementById("entry").innerText;
 }
 
-function printHistory(num) {
-  document.getElementById("entry").innerText = num;
+function printHistory(char) {
+  document.getElementById("entry").innerText = char;
 }
+
 function getResult() {
   return document.getElementById("result").innerText;
 }
@@ -29,13 +38,30 @@ function printResult(num) {
   document.getElementById("result").innerText = num;
 }
 
+// Code for the functioning of the calculator
+
 var operators = document.getElementsByClassName("operator");
 for (var i = 0; i < operators.length; i++) {
   operators[i].addEventListener("click", function () {
-    printHistory(getHistory() + this.innerText);
+    // Define behavior for operators pressed (AC:clear history ; C:Delete las char ; =:Evaluate history; Other operators add them to the history)
+    if (this.id == "clear") {
+      printHistory("");
+      printResult("");
+    } else if (this.id == "backspace") {
+      printHistory(getHistory().slice(0, -1));
+    } else if (this.id == "equal") {
+      var history = getOriginalNumber(getHistory());
+      history = getEvaluableHistory(history);
+      printResult(eval(history));
+      printHistory("");
+    } else {
+      printHistory(getResult() + getHistory() + this.innerText);
+      printResult("");
+    }
   });
 }
 
+// Add numbers pressed to the history
 var numbers = document.getElementsByClassName("number");
 for (var j = 0; j < operators.length; j++) {
   numbers[j].addEventListener("click", function () {
