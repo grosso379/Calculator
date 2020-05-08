@@ -1,0 +1,104 @@
+@import "./variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Creating calculator's background
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(
+    rgb(255, 34, 34),
+    rgba(170, 29, 29, 0.438),
+    rgb(40, 40, 255)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// defining calculator design
+.calculator {
+  background-color: rgb(255, 255, 255);
+  height: 600px;
+  width: 400px;
+  box-shadow: 1px 1px 10px 2px rgb(255, 24, 24);
+  padding: 10px;
+  border-radius: 10px;
+
+  // Result and entry sections
+  .top {
+    height: 20%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+
+    #entry {
+      height: 40%;
+      width: 100%;
+      font-size: 1.5em;
+      text-align: right;
+      padding: 15px 20px;
+      color: rgb(70, 58, 58);
+    }
+
+    #result {
+      height: 60%;
+      width: 100%;
+      font-size: 2.5em;
+      text-align: right;
+      padding: 5px 20px;
+    }
+  }
+
+  // buttons section
+  .keyboard {
+    display: flex;
+    direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+
+    button {
+      font-size: 1.5em;
+      font-weight: 500;
+      margin: 5px;
+      height: $button-size;
+      width: $button-size;
+      background-color: rgb(235, 223, 223);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s linear, filter 0.4s linear,
+        background-color 0.05s linear;
+      outline: none;
+    }
+
+    #cero {
+      width: $button-size * 2;
+      border-radius: 30%;
+    }
+
+    // Changing color of some buttons
+    button:nth-child(1),
+    button:nth-child(2),
+    button:nth-child(3),
+    button:nth-child(4n + 4),
+    button:last-child {
+      background-color: rgb(159, 159, 214);
+    }
+
+    // Defining button hover effect
+    button:hover {
+      transform: scale(1.05);
+      filter: brightness(0.8);
+    }
+
+    // Deffining button click effect
+    button:active {
+      background-color: coral;
+    }
+  }
+}

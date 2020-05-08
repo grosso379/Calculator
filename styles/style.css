@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff2222), color-stop(rgba(170, 29, 29, 0.438)), to(#2828ff));
+  background-image: linear-gradient(#ff2222, rgba(170, 29, 29, 0.438), #2828ff);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.calculator {
+  background-color: white;
+  height: 600px;
+  width: 400px;
+  -webkit-box-shadow: 1px 1px 10px 2px #ff1818;
+          box-shadow: 1px 1px 10px 2px #ff1818;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.calculator .top {
+  height: 20%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.calculator .top #entry {
+  height: 40%;
+  width: 100%;
+  font-size: 1.5em;
+  text-align: right;
+  padding: 15px 20px;
+  color: #463a3a;
+}
+
+.calculator .top #result {
+  height: 60%;
+  width: 100%;
+  font-size: 2.5em;
+  text-align: right;
+  padding: 5px 20px;
+}
+
+.calculator .keyboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.calculator .keyboard button {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin: 5px;
+  height: 83px;
+  width: 83px;
+  background-color: #ebdfdf;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: background-color 0.05s linear, -webkit-transform 0.2s linear, -webkit-filter 0.4s linear;
+  transition: background-color 0.05s linear, -webkit-transform 0.2s linear, -webkit-filter 0.4s linear;
+  transition: transform 0.2s linear, filter 0.4s linear, background-color 0.05s linear;
+  transition: transform 0.2s linear, filter 0.4s linear, background-color 0.05s linear, -webkit-transform 0.2s linear, -webkit-filter 0.4s linear;
+  outline: none;
+}
+
+.calculator .keyboard #cero {
+  width: 166px;
+  border-radius: 30%;
+}
+
+.calculator .keyboard button:nth-child(1),
+.calculator .keyboard button:nth-child(2),
+.calculator .keyboard button:nth-child(3),
+.calculator .keyboard button:nth-child(4n + 4),
+.calculator .keyboard button:last-child {
+  background-color: #9f9fd6;
+}
+
+.calculator .keyboard button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
+}
+
+.calculator .keyboard button:active {
+  background-color: coral;
+}
+/*# sourceMappingURL=style.css.map */
