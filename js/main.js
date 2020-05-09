@@ -54,7 +54,11 @@ for (let i = 0; i < operators.length; i++) {
     } else if (this.id == "equal") {
       var history = getOriginalNumber(getHistory());
       history = getEvaluableHistory(history);
-      printResult(math.evaluate(history));
+      try {
+        printResult(math.evaluate(history));
+      } catch (err) {
+        alert("The expresion inserted can't be evaluated");
+      }
       printHistory("");
     } else {
       printHistory(getResult() + getHistory() + this.innerText);
