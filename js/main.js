@@ -5,8 +5,13 @@ function isValidChar(tecla) {
   if (ch == "Enter") {
     solveExpression();
   } else if (pattern.test(ch)) {
-    printHistory(getResult() + getHistory());
-    printResult("");
+    if (/[0-9]/.test(ch)) {
+      printResult("");
+      printHistory(getHistory());
+    } else {
+      printHistory(getResult() + getHistory());
+      printResult("");
+    }
   } else {
     tecla.preventDefault();
   }
@@ -20,6 +25,9 @@ entrada.onblur = function () {
 
 //Function for getting rhe result
 const solveExpression = function () {
+  if (!getHistory()) {
+    printHistory(getResult());
+  }
   let history = getOriginalNumber(getHistory());
   history = getEvaluableHistory(history);
   try {
@@ -66,7 +74,7 @@ const printHistory = function (char) {
 const getResult = function () {
   // if result has NaN on it return empty string, otherwise return what's in result
   let text = document.getElementById("result").innerText;
-  if (text == NaN) {
+  if (text == "NaN") {
     return "";
   } else {
     return text;
