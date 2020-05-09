@@ -1,5 +1,5 @@
 // Format result to separate with comas each 3 digits
-function getFormattedNumber(num) {
+var getFormattedNumber = function (num) {
   if (num == "") {
     return num;
   } else {
@@ -7,42 +7,43 @@ function getFormattedNumber(num) {
     var value = n.toLocaleString("en");
     return value;
   }
-}
+};
 
 // Transform formatted number into regular number to calculate te result
-function getOriginalNumber(num) {
+var getOriginalNumber = function (num) {
   var value = num.replace(/,/g, "");
   return value;
-}
+};
 
-function getEvaluableHistory(string) {
+// Changing multiplication, division and percentage symbols to make them work correctly
+var getEvaluableHistory = function (string) {
   var value = string.replace(/×/g, "*");
   value = value.replace(/÷/g, "/");
   value = value.replace(/%/g, "*0.01*");
   return value;
-}
+};
 
-function getHistory() {
+var getHistory = function () {
   return document.getElementById("entry").innerText;
-}
+};
 
-function printHistory(char) {
+var printHistory = function (char) {
   document.getElementById("entry").innerText = char;
-}
+};
 
-function getResult() {
+var getResult = function () {
   return document.getElementById("result").innerText;
-}
+};
 
-function printResult(num) {
+var printResult = function (num) {
   num = getFormattedNumber(num);
   document.getElementById("result").innerText = num;
-}
+};
 
 // Code for the functioning of the calculator
 
 var operators = document.getElementsByClassName("operator");
-for (var i = 0; i < operators.length; i++) {
+for (let i = 0; i < operators.length; i++) {
   operators[i].addEventListener("click", function () {
     // Define behavior for operators pressed (AC:clear history ; C:Delete las char ; =:Evaluate history; Other operators add them to the history)
     if (this.id == "clear") {
@@ -64,7 +65,7 @@ for (var i = 0; i < operators.length; i++) {
 
 // Add numbers pressed to the history
 var numbers = document.getElementsByClassName("number");
-for (var j = 0; j < numbers.length; j++) {
+for (let j = 0; j < numbers.length; j++) {
   numbers[j].addEventListener("click", function () {
     printResult("");
     printHistory(getHistory() + this.innerText);

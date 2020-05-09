@@ -6,8 +6,8 @@
 }
 
 .container {
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   background-image: linear-gradient(45deg, #c0460d, #d45b65, #df6292);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -21,13 +21,16 @@
 }
 
 .calculator {
+  position: relative;
+  display: block;
   background-color: white;
   height: 600px;
-  width: 400px;
+  max-width: 400px;
   -webkit-box-shadow: 6px 6px 7px 0px rgba(212, 91, 101, 0.829);
           box-shadow: 6px 6px 7px 0px rgba(212, 91, 101, 0.829);
   padding: 10px;
   border-radius: 10px;
+  margin: 10px;
 }
 
 .calculator .top {
@@ -107,5 +110,17 @@
 
 .calculator .keyboard button:active {
   background-color: coral;
+}
+
+@media only screen and (max-width: 420px) {
+  .calculator {
+    width: 100vw;
+    height: 150vw;
+  }
+  .calculator .keyboard button {
+    height: 18vw;
+    width: 18vw;
+    margin: 5px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
