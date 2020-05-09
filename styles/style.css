@@ -46,6 +46,10 @@
   text-align: right;
   padding: 15px 20px;
   color: #463a3a;
+  outline: none;
+  border: none;
+  background-color: 0;
+  caret-color: transparent;
 }
 
 .calculator .top #result {
