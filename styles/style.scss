@@ -58,6 +58,21 @@
       font-size: 2.5em;
       text-align: right;
       padding: 5px 20px;
+      overflow: hidden;
+      overflow-x: auto;
+    }
+
+    #result::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    #result::-webkit-scrollbar-thumb {
+      background: linear-gradient(
+        90deg,
+        rgba(114, 114, 230, 0.705),
+        rgba(250, 183, 250, 0.692)
+      );
+      border-radius: 25%;
     }
   }
 
@@ -95,7 +110,10 @@
     button:nth-child(3),
     button:nth-child(4n + 4),
     button:last-child {
-      background-image: linear-gradient(rgb(114, 114, 230), rgb(250, 183, 250));
+      background-image: linear-gradient(
+        $button-first-color,
+        $button-second-color
+      );
     }
 
     // Defining button hover effect

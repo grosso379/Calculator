@@ -58,6 +58,18 @@
   font-size: 2.5em;
   text-align: right;
   padding: 5px 20px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.calculator .top #result::-webkit-scrollbar {
+  height: 10px;
+}
+
+.calculator .top #result::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(114, 114, 230, 0.705)), to(rgba(250, 183, 250, 0.692)));
+  background: linear-gradient(90deg, rgba(114, 114, 230, 0.705), rgba(250, 183, 250, 0.692));
+  border-radius: 25%;
 }
 
 .calculator .keyboard {
